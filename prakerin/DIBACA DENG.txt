@@ -1,0 +1,1 @@
+Dalam folder "Database", itu impor ke Mysql masing2 ea
