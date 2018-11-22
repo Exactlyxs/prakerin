@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2018 at 08:04 AM
+-- Generation Time: Nov 22, 2018 at 01:58 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -34,15 +34,10 @@ CREATE TABLE `kelompok` (
   `nama_siswa` varchar(200) NOT NULL,
   `jenis_kelamin` enum('L','P') NOT NULL,
   `rombel_saat_ini` varchar(10) NOT NULL,
-  `id_magang` int(3) NOT NULL
+  `id_magang` int(3) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `kelompok`
---
-
-INSERT INTO `kelompok` (`id_kelompok`, `nisn`, `nama_siswa`, `jenis_kelamin`, `rombel_saat_ini`, `id_magang`) VALUES
-(4, '0017350680', '', 'L', '', 124);
 
 -- --------------------------------------------------------
 
@@ -52,20 +47,14 @@ INSERT INTO `kelompok` (`id_kelompok`, `nisn`, `nama_siswa`, `jenis_kelamin`, `r
 
 CREATE TABLE `magang` (
   `id_magang` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `nama_magang` varchar(150) NOT NULL,
   `alamat_magang` varchar(150) NOT NULL,
   `deskripsi_magang` varchar(300) NOT NULL,
   `kapasitas_magang` int(11) NOT NULL,
   `genre` set('RPL','TKJ','MM','PKS','BCT','ANM','DI','KI') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Untuk data tempat magang';
-
---
--- Dumping data for table `magang`
---
-
-INSERT INTO `magang` (`id_magang`, `nama_magang`, `alamat_magang`, `deskripsi_magang`, `kapasitas_magang`, `genre`) VALUES
-(123, 'Menara Pandang', 'Jalan apakah barang mauk', 'urng pro ja kesini', 5, ''),
-(124, 'sekolah', 'Menara pandang disiring tuna adalo paling ganal, pasti tahu ja sorang baapa btakun pulang', 'orng pro ja ea', 1, '');
 
 -- --------------------------------------------------------
 
@@ -75,6 +64,8 @@ INSERT INTO `magang` (`id_magang`, `nama_magang`, `alamat_magang`, `deskripsi_ma
 
 CREATE TABLE `pesan` (
   `id_pesan` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `id_user` varchar(15) NOT NULL,
   `id_kelompok` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -143,16 +134,18 @@ CREATE TABLE `siswa` (
   `kebutuhan_khusus` varchar(50) NOT NULL,
   `sekolah_asal` varchar(50) DEFAULT NULL,
   `anak_ke_berapa` int(11) DEFAULT NULL,
-  `bio` varchar(500) NOT NULL
+  `bio` varchar(500) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='untuk data siswa';
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`nama_siswa`, `nipd`, `jenis_kelamin`, `nisn`, `tempat_lahir`, `tanggal_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kode_pos`, `jenis_tinggal`, `alat_transportasi`, `telepon`, `hp`, `email`, `skhun`, `penerima_kps`, `no.kps`, `nama_ayah`, `tahun_lahir_ayah`, `jenjang_pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ayah`, `nama_ibu`, `tahun_lahir_ibu`, `jenjang_pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_ibu`, `nama_wali`, `tahun_lahir_wali`, `jenjang_pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `nik_wali`, `rombel_saat_ini`, `no_peserta_ujian`, `no_seri_ijazah`, `penerima_kip`, `nomor_kip`, `nama_di_kip`, `nomor_kks`, `no_reg_akta_lahir`, `bank`, `no_rek_bank`, `rekening_atas_nama`, `layak_pip`, `alasan_layak_pip`, `kebutuhan_khusus`, `sekolah_asal`, `anak_ke_berapa`, `bio`) VALUES
-('M. Sulthona Sukmini', NULL, 'P', '0007350680', 'Banjarmasin', '2001-09-01', 1920129102912091, 'Isla,', 'Jln. Padat Karya Komp. Perdana Mandiri No. 07', NULL, NULL, NULL, 'Sungai Andai', 'Banjarmasin Utara', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Berkebutuhan Dia', NULL, NULL, 'Kontol'),
-('M. Sulthoni Sukma', NULL, 'L', '0017350680', 'Banjarmasin', '2001-09-01', 1920129102912091, 'Islam', 'Jln. Padat Karya Komp. Perdana Mandiri No. 07', NULL, NULL, NULL, 'Sungai Andai', 'Banjarmasin Utara', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Berkebutuhan Dia', NULL, NULL, '');
+INSERT INTO `siswa` (`nama_siswa`, `nipd`, `jenis_kelamin`, `nisn`, `tempat_lahir`, `tanggal_lahir`, `nik`, `agama`, `alamat`, `rt`, `rw`, `dusun`, `kelurahan`, `kecamatan`, `kode_pos`, `jenis_tinggal`, `alat_transportasi`, `telepon`, `hp`, `email`, `skhun`, `penerima_kps`, `no.kps`, `nama_ayah`, `tahun_lahir_ayah`, `jenjang_pendidikan_ayah`, `pekerjaan_ayah`, `penghasilan_ayah`, `nik_ayah`, `nama_ibu`, `tahun_lahir_ibu`, `jenjang_pendidikan_ibu`, `pekerjaan_ibu`, `penghasilan_ibu`, `nik_ibu`, `nama_wali`, `tahun_lahir_wali`, `jenjang_pendidikan_wali`, `pekerjaan_wali`, `penghasilan_wali`, `nik_wali`, `rombel_saat_ini`, `no_peserta_ujian`, `no_seri_ijazah`, `penerima_kip`, `nomor_kip`, `nama_di_kip`, `nomor_kks`, `no_reg_akta_lahir`, `bank`, `no_rek_bank`, `rekening_atas_nama`, `layak_pip`, `alasan_layak_pip`, `kebutuhan_khusus`, `sekolah_asal`, `anak_ke_berapa`, `bio`, `created_at`, `updated_at`) VALUES
+('M. Sulthona Sukmini', NULL, 'P', '0007350680', 'Banjarmasin', '2001-09-01', 1920129102912091, 'Isla,', 'Jln. Padat Karya Komp. Perdana Mandiri No. 07', NULL, NULL, NULL, 'Sungai Andai', 'Banjarmasin Utara', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Berkebutuhan Dia', NULL, NULL, 'Kontol', '2018-11-22 11:55:40', '0000-00-00 00:00:00'),
+('M. Sulthoni Sukma', NULL, 'L', '0017350680', 'Banjarmasin', '2001-09-01', 1920129102912091, 'Islam', 'Jln. Padat Karya Komp. Perdana Mandiri No. 07', NULL, NULL, NULL, 'Sungai Andai', 'Banjarmasin Utara', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Berkebutuhan Dia', NULL, NULL, '', '2018-11-22 11:55:40', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -162,6 +155,8 @@ INSERT INTO `siswa` (`nama_siswa`, `nipd`, `jenis_kelamin`, `nisn`, `tempat_lahi
 
 CREATE TABLE `user` (
   `id_user` varchar(50) NOT NULL COMMENT 'untuk siswa nisn, untuk guru idnya',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `katasandi` varchar(15) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `role` enum('0','1','2','3','4') NOT NULL,
@@ -173,8 +168,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `katasandi`, `nama`, `role`, `jurusan`, `onoff`) VALUES
-('0007350680', 'tes123', 'M. Sulthoni Sukma', '0', NULL, 'online');
+INSERT INTO `user` (`id_user`, `created_at`, `updated_at`, `katasandi`, `nama`, `role`, `jurusan`, `onoff`) VALUES
+('0007350680', '2018-11-22 11:56:04', '0000-00-00 00:00:00', 'tes123', 'M. Sulthoni Sukma', '0', NULL, 'online');
 
 --
 -- Indexes for dumped tables
@@ -222,7 +217,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `kelompok`
 --
 ALTER TABLE `kelompok`
-  MODIFY `id_kelompok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kelompok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `magang`
