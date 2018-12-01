@@ -64,7 +64,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
-                <h1>Manage Pengunguman</h1>
+                <h1>Manage Pengumuman</h1>
                 <a href="#" class="btn btn-success my-2">Tambah</a>
                 <div class="mading">
                     <table class="table">
