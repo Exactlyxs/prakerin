@@ -15,7 +15,7 @@
       <tr>
        <?php
             include_once("koneksi.php");
-            $query="SELECT * FROM siswa";
+            $query="SELECT * FROM tb_siswa";
             $sql = mysqli_query($koneksi, $query);
             $no =1;
 
