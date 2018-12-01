@@ -92,7 +92,7 @@
                 </div>
                 <div class="form-group">
                     <label>Kapasitas Prakerin</label>
-                    <select class="form-control w-50" id="exampleFormControlSelect1">
+                    <select class="form-control w-50" name="kapasitas" id="exampleFormControlSelect1">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
