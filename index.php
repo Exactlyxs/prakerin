@@ -5,24 +5,24 @@ if (isset($_POST['submit']) ) {
     $user = $_POST['nama'];
     $pass = $_POST['password'];
 
-    $sql = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE id_user='$user' AND kata_sandi='$pass'") or die(mysql_error());
+    $sql = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE id_user='$user' AND kata_sandi='$pass'") or die(mysqli_error());
 
     if (mysqli_num_rows($sql) == 0) {
         echo "Login Gagal";
     }else {
         $row = mysqli_fetch_assoc($sql);
         if ($row['role'] == 1) {
-            $_SESSION['id_user']=$user;
-            header('location: admin/dashboard.php?id='.$pass);
+            $_SESSION['id_user']=$row['id_user'];
+            header('location:admin/admin-dash.php');
           }elseif ($row['role'] == 2) {
-            $_SESSION['id_user']=$user;
-            header('location:admin/dashboard.php?id='.$pass);
+            $_SESSION['id_user']=$row['id_user'];
+            header('location:admin/admin-dash.php');
           }elseif ($row['role'] == 3) {
-            $_SESSION['id_user']=$user;
-            header('location:admin/dashboard.php?id='.$pass);
+            $_SESSION['id_user']=$row['id_user'];
+            header('location:admin/admin-dash.php');
           }elseif ($row['role'] == 4) {
-            $_SESSION['id_user']=$user;
-            header('location:user/dashboard.html?id='.$pass);
+            $_SESSION['id_user']=$row['id_user'];
+            header('location:siswa/siswa-dash.php');
     }
 }
 }
