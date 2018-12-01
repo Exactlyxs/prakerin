@@ -1,3 +1,14 @@
+<?php
+	include '../koneksi.php';
+  $querymading = "SELECT * FROM tb_mading";
+	$querymagang = "SELECT * FROM tb_magang";
+
+  $sql1 = mysqli_query($koneksi, $querymading);
+	$sql2 = mysqli_query($koneksi, $querymagang);
+
+ ?>
+
+
 <html>
 
 <!-- link css and Bootsrap -->
@@ -59,42 +70,31 @@
         </ul>
       </div>
     </nav>
+
+<!-- News Berita terkini -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
             <h1>News</h1>
             <div class="mading">
+              <?php
+                while ($row = mysqli_fetch_assoc($sql1)):
+                $id = $row['id_mading'];
+               ?>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title"><?php echo $row['judul']?></h5>
+                        <p class="card-text"><?php echo $row['isi'] ?></p>
                         <a href="#" class="btn btn-primary">Button</a>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                </div>
+                <?php
+                 endwhile; ?>
             </div>
         </div>
         <div class="col-lg-6">
+
+<!-- tampat magang           -->
             <h1>Tempat Magang</h1>
             <div class="t-scroll">
                     <table class="table">
@@ -107,66 +107,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              <?php
+                                $no = 1;
+                                while ($row = mysqli_fetch_assoc($sql2)):
+                                $id = $row['id_magang'];
+                               ?>
                                 <tr>
-                                    <td scope="row">1</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
+                                    <td scope="row"><?php echo $no ?></td>
+                                    <td><?php echo $row['nama_magang'] ?></td>
+                                    <td><?php echo $row['kapasitas_magang'] ?> Orang</td>
                                     <td><a href="#" class="btn btn-primary">Detail</a></td>
                                 </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">2</td>
-                                    <td>PT. Alan</td>
-                                    <td>3 orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
-                                </tr>
+                                <?php
+                                 $no++;
+                                 endwhile; ?>
                             </tbody>
                        </table>
             </div>
