@@ -26,5 +26,5 @@
 		}
 	}
  ?>
- <button type="button" onclick="window.location.href='daftarCuci.php'" class="btn btn-primary btn-lg">Back</button>
+ <button type="button" onclick="window.location.href='add_mading.php'" class="btn btn-primary btn-lg">Back</button>
  </div>

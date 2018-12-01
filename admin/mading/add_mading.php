@@ -11,6 +11,7 @@
   </head>
   <body>
       <div class="container">
+      <form action="add_mading_proses.php" method="post">
       <h1>Tambah Pengumuman</h1>
         <div class="form-group">
           <label for="judul">Judul</label>
@@ -24,8 +25,9 @@
           <label for="pembuat">Pembuat</label>
           <input type="text" class="form-control w-50" name="pembuat" id="" aria-describedby="helpId" placeholder="">
         </div>
-        <button type="submit" class="btn btn-md btn-primary">Submit</button>   
+        <button type="submit" class="btn btn-md btn-primary" name="submit">Submit</button>   
       </div>
+      </form>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
