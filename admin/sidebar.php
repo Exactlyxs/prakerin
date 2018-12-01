@@ -1,10 +1,5 @@
 <html>
-<?php 
-	include '../koneksi.php';
-	$query = "SELECT * FROM tb_mading";
-	$sql = mysqli_query($koneksi, $query);
 
- ?>
 <!-- link css and Bootsrap -->
 
 <head>
@@ -64,79 +59,3 @@
         </ul>
       </div>
     </nav>
-
-<?php 
-    include 'sidebar.php';
-?>
-    <!-- Content -->
-    <!-- Mading -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
-                <h1>Manage Pengunguman</h1>
-                <a href="mading/add_mading.php" class="btn btn-success my-2">Tambah</a>
-                <div class="mading">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Judul</th>
-                                <th>isi</th>
-                                <th>Pembuat</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-	 		$no = 1;
-	 		while ($row = mysqli_fetch_assoc($sql)):
-	 		$id = $row['id_mading'];
-	 	 ?>
-	 	<tr>
-	 		<td><?php echo $no ?></td>
-	 		<td><?php echo $row['judul'] ?></td>
-	 		<td><?php echo $row['isi'] ?></td>
-	 		<td><?php echo $row['pembuat'] ?></td>
-	 		<td>
-	 			<a href="edit.php?id=<?php echo $id ?>">Edit</a><br> 
-	 			<a href="delete.php?id=<?php echo $id ?>">Hapus</a>
-	 		</td>
-
-	 	</tr>
-	 <?php 
-	 	$no++;
-	 	endwhile; ?>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <h1>Manage Tempat Magang</h1>
-                <a href="dudi/add_dudi.php" class="btn btn-success my-2">Tambah</a>
-                <div class="mading">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Tempat</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">1</td>
-                                <td>PT Abadi</td>
-                                <td><a href="#" class="btn btn-primary m-2">Edit</a><a href="#" class="btn btn-danger m-2">Hapus</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <?php 
-        include 'footer.php'
-    ?>
