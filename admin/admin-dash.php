@@ -98,7 +98,7 @@
             </div>
             <div class="col-lg-6">
                 <h1>Manage Tempat Magang</h1>
-                <a href="#" class="btn btn-success my-2">Tambah</a>
+                <a href="dudi/add_dudi.php" class="btn btn-success my-2">Tambah</a>
                 <div class="mading">
                     <table class="table">
                         <thead>
