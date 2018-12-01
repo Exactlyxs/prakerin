@@ -29,43 +29,29 @@ if (isset($_POST['submit']) ) {
 ?>
 
 
+<html>
 
-  <form>
-    <table>
-      <th>No</th>
-      <th>NISN</th>
-      <th>Nama</th>
-      <th>Kelas</th>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
 
-      <tr>
-       <?php
-            include_once("koneksi.php");
-            $query="SELECT * FROM tb_siswa";
-            $sql = mysqli_query($koneksi, $query);
-            $no =1;
-
-            while ($data=mysqli_fetch_assoc($sql)):
-            ?>
-
-
-        <!-- <tr> -->
-          <td><?php echo $no; ?></td>
-          <td><?php echo $data['nisn']; ?></td>
-          <td><?php echo $data['nama_siswa']; ?></td>
-          <td><?php echo $data['rombel_saat_ini']; ?></td>
-        <!-- </tr> -->
-            <td>
-		<!-- <a href="pemilih_edit.php?id=<=?php //echo $data['id_pemilih']; ?>">Edit</a> -->
-            <button type="button" class="btn btn-success btn-md" onclick="window.location.href='rinci.php?id=<?php echo $data['nisn']; ?>'">Detail</button>
-            </td>
-      </tr>
-      <?php
-      $no++;
-      endwhile;
-      ?>
-
-  </table>
-</form>
-<!-- alamat link tapi pakai button !-->
-<!-- mun hndk ganti jadi button begambar !-->
-  <!-- <button type="button" class="btn btn-success btn-md" onclick="window.location.href='pemilih_add.php'">Add</button> -->
+<body>
+    <div class="login-card">
+      <form method="post">
+                <img src="assets/img/9.png" class="profile-img-card">
+                <p class="profile-name-card"> </p>
+                <input class="form-control" type="text" required="" name="nama" placeholder="Username" autofocus="" id="inputUsername">
+                <br>
+                <input class="form-control" type="password" required="" name="password" placeholder="Password" id="inputPassword">
+                <button class="btn btn-primary btn-block btn-lg btn-signin" name="submit" type="submit">Login</button>
+        </form>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
