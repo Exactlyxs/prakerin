@@ -18,13 +18,11 @@
 			$lastId = mysqli_insert_id($koneksi);
 			
 			echo "Pengumuman sudah ditempel";
-			
-			//header('location:daftarCuci.php');
+			header('location:admin-dash.php');
+
 		}
 		else{
 			echo "Gagal Memasukkan";
 		}
 	}
  ?>
- <button type="button" onclick="window.location.href='add_mading.php'" class="btn btn-primary btn-lg">Back</button>
- </div>

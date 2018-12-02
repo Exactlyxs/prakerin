@@ -1,46 +1,3 @@
-<?php
-include "../../koneksi.php";
-
-if(isset($_POST['submit'])){
-
-  $nama_magang = $_POST['magang'];
-	$alamat_magang = $_POST['alamat'];
-	$deskripsi_magang = $_POST['deskripsi'];
-  $kapasitas = $_POST['kapasitas'];
-	$genre = $_POST['jurusan'];
-
-		$query = "INSERT INTO tb_magang (nama_magang, alamat_magang, deskripsi_magang, kapasitas, genre) VALUES ('$nama_magang', '$alamat_magang', '$deskripsi_magang', '$kapasitas', '$genre')";
-	  	$sql  = mysqli_query($koneksi,$query);
-
-	  	if ($sql) {// cek jika proses menyimpan sukses atau tidak
-	    //jika sukses
-        echo "sukses";
-	 	 }else{
-	    //jika gagal
-	    echo "gagal";
-
-	  	}
-	}
-  ?>
-
-
-
-<!-- <!doctype html>
-<html lang="en">
-
-<head>
-    <title>Title</title> -->
-<!-- Required meta tags -->
-<!-- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-
-<!-- Bootstrap CSS -->
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous"> -->
-<!-- </head>
-
-<body> -->
-
 <html>
 
 <!-- link css and Bootsrap -->
@@ -64,7 +21,7 @@ if(isset($_POST['submit'])){
     <div id="wrapper" class="animate">
         <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
             <span class="navbar-toggler-icon leftmenutrigger"></span>
-            <a class="navbar-brand" href="#"> <img src="../../assets/images/smkLogo.png" width="30"></a>
+            <a class="navbar-brand" href="../admin-dash.php"> <img src="../../assets/images/smkLogo.png" width="30"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +31,7 @@ if(isset($_POST['submit'])){
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav animate side-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">DASHBOARD
+                        <a class="nav-link" href="../admin-dash.php">DASHBOARD
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -102,12 +59,13 @@ if(isset($_POST['submit'])){
                 </ul>
             </div>
         </nav>
+        <!-- Batas Sidebar -->
         <div class="container border border-dark rounded">
             <h1>Tambah Tempat Magang</h1>
-            <form action="" method="post">
+            <form action="add_dudiAction.php" method="post">
                 <div class="form-group">
                     <label>Nama Prakerin</label>
-                    <input type="text" name="magang" id="" class="form-control w-50" placeholder="" aria-describedby="helpId">
+                    <input type="text" name="magang" id="" class="form-control w-50" autofocus="" aria-describedby="helpId">
                 </div>
                 <div class="form-group">
                     <label>Alamat Prakerin</label>
@@ -120,6 +78,7 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                     <label>Kapasitas Prakerin</label>
                     <select class="form-control w-50" name="kapasitas" id="exampleFormControlSelect1">
+                        <option value="-">Pilih Kapasitas :</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -128,8 +87,18 @@ if(isset($_POST['submit'])){
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>
-                    <input type="text" name="jurusan" class="form-control w-50" placeholder="" aria-describedby="helpId">
+                    <label>Jurusan</label>                    
+                    <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
+                        <option value="-">Pilih Jurusan :</option>
+                        <option value="PS">Pekerja Sosial</option>
+                        <option value="TKJ">Teknik Komputer Jaringan</option>
+                        <option value="BCT">Bordcasting</option>
+                        <option value="ANM">Animasi</option>
+                        <option value="MM">Multimedia</option>
+                        <option value="RPL">Rekayasa Perangkat Lunak</option>
+                        <option value="KI">Kimia Industri</option>
+                        <option value="DI">Design Interior</option>
+                    </select>
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-md btn-primary">Simpan</button>
@@ -148,16 +117,3 @@ if(isset($_POST['submit'])){
 </body>
 
 </html>
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
-
-</html> -->
