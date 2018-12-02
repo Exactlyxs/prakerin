@@ -85,7 +85,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['judul']?></h5>
                         <p class="card-text"><?php echo $row['isi'] ?></p>
-                        <a href="#" class="btn btn-primary">Button</a>
+                        <a href="#" class="btn btn-primary">Detail</a>
                     </div>
                 </div>
                 <?php
@@ -95,7 +95,7 @@
         <div class="col-lg-6">
 
 <!-- tampat magang           -->
-            <h1>Tempat Magang</h1>
+            <h1>Tempat Prakerin</h1>
             <div class="t-scroll">
                     <table class="table">
                             <thead class="thead-dark">
@@ -116,7 +116,7 @@
                                     <td scope="row"><?php echo $no ?></td>
                                     <td><?php echo $row['nama_magang'] ?></td>
                                     <td><?php echo $row['kapasitas_magang'] ?> Orang</td>
-                                    <td><a href="#" class="btn btn-primary">Detail</a></td>
+                                    <td><a href="siswa-dudi/detail.php?id=<?php echo $id ?>" class="btn btn-primary">Detail</a></td>
                                 </tr>
                                 <?php
                                  $no++;
