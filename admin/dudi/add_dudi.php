@@ -1,3 +1,30 @@
+<?php
+include "../../koneksi.php";
+
+if(isset($_POST['submit'])){
+
+  $nama_magang = $_POST['magang'];
+	$alamat_magang = $_POST['alamat'];
+	$deskripsi_magang = $_POST['deskripsi'];
+  $kapasitas = $_POST['kapasitas'];
+	$genre = $_POST['jurusan'];
+
+		$query = "INSERT INTO tb_magang (nama_magang, alamat_magang, deskripsi_magang, kapasitas, genre) VALUES ('$nama_magang', '$alamat_magang', '$deskripsi_magang', '$kapasitas', '$genre')";
+	  	$sql  = mysqli_query($koneksi,$query);
+
+	  	if ($sql) {// cek jika proses menyimpan sukses atau tidak
+	    //jika sukses
+        echo "sukses";
+	 	 }else{
+	    //jika gagal
+	    echo "gagal";
+
+	  	}
+	}
+  ?>
+
+
+
 <!-- <!doctype html>
 <html lang="en">
 
@@ -80,7 +107,7 @@
             <form action="" method="post">
                 <div class="form-group">
                     <label>Nama Prakerin</label>
-                    <input type="text" name="nama" id="" class="form-control w-50" placeholder="" aria-describedby="helpId">
+                    <input type="text" name="magang" id="" class="form-control w-50" placeholder="" aria-describedby="helpId">
                 </div>
                 <div class="form-group">
                     <label>Alamat Prakerin</label>
@@ -93,11 +120,11 @@
                 <div class="form-group">
                     <label>Kapasitas Prakerin</label>
                     <select class="form-control w-50" name="kapasitas" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -105,7 +132,7 @@
                     <input type="text" name="jurusan" class="form-control w-50" placeholder="" aria-describedby="helpId">
                 </div>
 
-                <button type="submit" class="btn btn-md btn-primary">Simpan</button>
+                <button type="submit" name="submit" class="btn btn-md btn-primary">Simpan</button>
             </form>
         </div>
 
