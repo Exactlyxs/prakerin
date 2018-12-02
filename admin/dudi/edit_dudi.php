@@ -1,4 +1,4 @@
-<?php 
+<?php
     include '../../koneksi.php';
     $id_magang = $_GET['id'];
     $query = "SELECT * FROM tb_magang WHERE id_magang='$id_magang'";
@@ -70,7 +70,7 @@
         <!-- Batas Sidebar -->
         <div class="container border border-dark rounded">
             <h1>Edit Tempat Magang</h1>
-            <form action="" method="post">
+            <form action="edit_dudiAction.php?id=<?php echo $id_magang ?>" method="post">
                 <div class="form-group">
                     <label>Nama Prakerin</label>
                     <input type="text" name="magang" class="form-control w-50" value="<?php echo $row['nama_magang'] ?>" aria-describedby="helpId">

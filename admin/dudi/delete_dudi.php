@@ -1,4 +1,4 @@
-<?php 
+<?php
     include '../../koneksi.php';
     $id_magang = $_GET['id'];
     $query = "SELECT * FROM tb_magang WHERE id_magang='$id_magang'";
@@ -109,7 +109,7 @@
                     </select>
                 </div>
 
-                <button type="submit" name="submit" class="btn btn-md btn-primary">Hapus</button>
+                <a href="delete_dudiAction.php?id=<?php echo $id_magang ?>" class="btn btn-md btn-primary" >Hapus</a></button>
             </form>
         </div>
 

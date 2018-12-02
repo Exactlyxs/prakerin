@@ -15,7 +15,7 @@ if(isset($_POST['submit'])){
 	  	if ($sql) {// cek jika proses menyimpan sukses atau tidak
 	    //jika sukses
 				echo "sukses";
-				header('location:admin-dash.php');
+				header('location:../admin-dash.php');
 	 	 }else{
 	    //jika gagal
 	    echo "gagal";
