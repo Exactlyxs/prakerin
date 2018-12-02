@@ -1,8 +1,11 @@
 <html>
-<?php 
+<?php
 	include '../koneksi.php';
-	$query = "SELECT * FROM tb_mading";
-	$sql = mysqli_query($koneksi, $query);
+	$querymading = "SELECT * FROM tb_mading";
+	$querymagang = "SELECT * FROM tb_magang";
+
+  $sql1 = mysqli_query($koneksi, $querymading);
+	$sql2 = mysqli_query($koneksi, $querymagang);
 
  ?>
 <!-- link css and Bootsrap -->
@@ -65,7 +68,7 @@
       </div>
     </nav>
 
-<?php 
+<?php
     include 'sidebar.php';
 ?>
     <!-- Content -->
@@ -89,7 +92,7 @@
                         <tbody>
                         <?php
 	 		$no = 1;
-	 		while ($row = mysqli_fetch_assoc($sql)):
+	 		while ($row = mysqli_fetch_assoc($sql1)):
 	 		$id = $row['id_mading'];
 	 	 ?>
 	 	<tr>
@@ -98,12 +101,12 @@
 	 		<td><?php echo $row['isi'] ?></td>
 	 		<td><?php echo $row['pembuat'] ?></td>
 	 		<td>
-	 			<a href="edit.php?id=<?php echo $id ?>">Edit</a><br> 
-	 			<a href="delete.php?id=<?php echo $id ?>">Hapus</a>
+	 			<a href="edit.php?id=<?php echo $id ?>" class="btn btn-primary">Edit</a><br><br>
+	 			<a href="delete.php?id=<?php echo $id ?>" class="btn btn-danger">Hapus</a>
 	 		</td>
 
 	 	</tr>
-	 <?php 
+	 <?php
 	 	$no++;
 	 	endwhile; ?>
 
@@ -124,11 +127,19 @@
                             </tr>
                         </thead>
                         <tbody>
+													<?php
+														$no = 1;
+														while ($row = mysqli_fetch_assoc($sql2)):
+														$id = $row['id_magang'];
+													 ?>
                             <tr>
-                                <td scope="row">1</td>
-                                <td>PT Abadi</td>
+                                <td scope="row"><?php echo $no ?></td>
+                                <td><?php echo $row['nama_magang'] ?></td>
                                 <td><a href="#" class="btn btn-primary m-2">Edit</a><a href="#" class="btn btn-danger m-2">Hapus</a></td>
                             </tr>
+														<?php
+														 $no++;
+														 endwhile; ?>
                         </tbody>
                     </table>
                 </div>
@@ -137,6 +148,6 @@
     </div>
     </div>
 
-    <?php 
+    <?php
         include 'footer.php'
     ?>
