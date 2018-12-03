@@ -8,7 +8,7 @@
 		$isi = $_POST['isi'];
 		$pembuat = $_POST['pembuat'];
 
-		$query = "UPDATE tb_mading SET judul = '$judul', isi = '$isi', pembuat = '$pembuat' WHERE id_magang = '$id'";
+		$query = "UPDATE tb_mading SET judul = '$judul', isi = '$isi', pembuat = '$pembuat' WHERE id_mading = '$id'";
 		$sql = mysqli_query($koneksi, $query);
 		if ($sql) {
 			echo "Data Berhasil Update";
