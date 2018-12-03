@@ -109,7 +109,7 @@
                     </select>
                 </div>
 
-                <a href="delete_dudiAction.php?id=<?php echo $id_magang ?>" class="btn btn-md btn-primary" >Hapus</a></button>
+                <a href="delete_dudiAction.php?id=<?php echo $id_magang ?>" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');">Hapus</a>
             </form>
         </div>
 

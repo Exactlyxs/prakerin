@@ -72,7 +72,7 @@
 
         <div class="container border border-dark rounded">
             <div class="container">
-                <form action="" method="post">
+                <form action="edit_mading_proses.php?id=<?php echo $id_magang ?>" method="post">
                     <h1>Edit Pengumuman</h1>
                     <div class="form-group">
                         <label for="judul">Judul</label>
@@ -88,7 +88,7 @@
                         <input type="text" class="form-control w-50" name="pembuat" aria-describedby="helpId"
                             value="<?php echo $row['pembuat'] ?>">
                     </div>
-                    <button type="submit" class="btn btn-md btn-primary" name="submit">Edit</button>
+                    <button type="submit" class="btn btn-md btn-primary" name="submit" onclick="return confirm('Yakin ?');">Edit</button>
             </div>
             </form>
         </div>

@@ -18,7 +18,7 @@
 			$lastId = mysqli_insert_id($koneksi);
 			
 			echo "Pengumuman sudah ditempel";
-			header('location:admin-dash.php');
+			header('location:../admin-dash.php');
 
 		}
 		else{
