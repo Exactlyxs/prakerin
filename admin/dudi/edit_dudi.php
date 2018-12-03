@@ -96,16 +96,16 @@
                 </div>
                 <div class="form-group">
                     <label>Jurusan</label>
-                    <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
+                    <select multiple class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
                         <option value="<?php echo $row['genre'] ?>"><?php echo $row['genre'] ?></option>
-                        <option value="PS">Pekerja Sosial</option>
-                        <option value="TKJ">Teknik Komputer Jaringan</option>
-                        <option value="BCT">Bordcasting</option>
-                        <option value="ANM">Animasi</option>
-                        <option value="MM">Multimedia</option>
-                        <option value="RPL">Rekayasa Perangkat Lunak</option>
-                        <option value="KI">Kimia Industri</option>
-                        <option value="DI">Design Interior</option>
+                        <option value="PS, ">Pekerja Sosial</option>
+                        <option value="TKJ, ">Teknik Komputer Jaringan</option>
+                        <option value="BCT, ">Bordcasting</option>
+                        <option value="ANM, ">Animasi</option>
+                        <option value="MM, ">Multimedia</option>
+                        <option value="RPL, ">Rekayasa Perangkat Lunak</option>
+                        <option value="KI, ">Kimia Industri</option>
+                        <option value="DI, ">Design Interior</option>
                     </select>
                 </div>
 
