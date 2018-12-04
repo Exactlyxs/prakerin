@@ -109,7 +109,7 @@
                     </select>
                 </div>
 
-                <button type="submit" name="submit" class="btn btn-md btn-primary">Edit</button>
+                <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');>Edit</button>
             </form>
         </div>
 
