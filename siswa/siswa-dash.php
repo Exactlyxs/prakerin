@@ -61,11 +61,12 @@
               <center>
                 <p class="dropdown-item" href="#">Riswan Noorhidayat</p>
                 <p class="dropdown-item" href="#">0123456789</p>
+                <a href="profil.php" class="btn btn-sm btn-primary">Profil</a>
               </center>
             </div>
           </li>
           <li class="nav-item icon">
-            <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+            <a class="nav-link btn btn-danger btn-sm" href="">LOGOUT</a>
           </li>
         </ul>
       </div>
