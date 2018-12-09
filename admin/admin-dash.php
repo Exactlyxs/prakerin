@@ -11,7 +11,7 @@ session_start();
  ?>
 <!-- link css and Bootsrap -->
 
-<head>
+<!-- <head>
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/style_Sidebar.css">
@@ -23,11 +23,11 @@ session_start();
 
 
 
-</head>
+</head> -->
 
 <body>
     <!-- SideBar Logo -->
-    <div id="wrapper" class="animate">
+    <!-- <div id="wrapper" class="animate">
         <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
             <span class="navbar-toggler-icon leftmenutrigger"></span>
             <a class="navbar-brand" href="#"> <img src="../assets/images/smkLogo.png" width="30"></a>
@@ -37,7 +37,7 @@ session_start();
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- SideBar Isi -->
-            <div class="collapse navbar-collapse" id="navbarText">
+            <!-- <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav animate side-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#">DASHBOARD
@@ -49,7 +49,7 @@ session_start();
                     </li>
                 </ul>
                 <!-- NavBar -->
-                <ul class="navbar-nav ml-md-auto d-md-flex">
+                <!-- <ul class="navbar-nav ml-md-auto d-md-flex">
                     <li class="nav-item dropdown icon">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -63,11 +63,11 @@ session_start();
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="../logout.php">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../index.php">LOGOUT</a>
                     </li>
-                </ul>
-            </div>
-        </nav>
+                </ul> -->
+            <!-- </div> --> -->
+        <!-- </nav> --> -->
 
         <?php
     include 'sidebar.php';
