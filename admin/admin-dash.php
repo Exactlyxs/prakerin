@@ -1,5 +1,6 @@
 <html>
 <?php
+session_start();
 	include '../koneksi.php';
 	$querymading = "SELECT * FROM tb_mading";
 	$querymagang = "SELECT * FROM tb_magang";
@@ -62,7 +63,7 @@
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../logout.php">LOGOUT</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +77,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1>Manage Pengunguman</h1>
+                    <h1>Manage Pengumuman</h1>
                     <a href="mading/add_mading.php" class="btn btn-success my-2">Tambah</a>
                     <div class="mading">
                         <table class="table">

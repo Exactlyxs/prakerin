@@ -54,7 +54,7 @@
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../../logout.php">LOGOUT</a>
                     </li>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>                    
+                    <label>Jurusan</label>
                     <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
                         <option value="-">Pilih Jurusan :</option>
                         <option value="PS">Pekerja Sosial</option>

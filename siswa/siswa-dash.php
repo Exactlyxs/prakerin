@@ -66,7 +66,7 @@
             </div>
           </li>
           <li class="nav-item icon">
-            <a class="nav-link btn btn-danger btn-sm" href="">LOGOUT</a>
+            <a class="nav-link btn btn-danger btn-sm" href="../logout.php">LOGOUT</a>
           </li>
         </ul>
       </div>
