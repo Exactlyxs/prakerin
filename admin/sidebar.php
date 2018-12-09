@@ -21,7 +21,7 @@
   <div id="wrapper" class="animate">
     <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
       <span class="navbar-toggler-icon leftmenutrigger"></span>
-      <a class="navbar-brand" href="#"> <img src="../assets/images/smkLogo.png" width="30"></a>
+      <a class="navbar-brand" href="admin-dash.php"> <img src="../assets/images/smkLogo.png" width="30"></a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav animate side-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">DASHBOARD
+            <a class="nav-link" href="admin-dash.php">DASHBOARD
               <span class="sr-only">(current)</span>
             </a>
           </li>

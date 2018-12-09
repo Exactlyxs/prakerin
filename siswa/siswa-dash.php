@@ -86,7 +86,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['judul']?></h5>
                         <p class="card-text"><?php echo $row['isi'] ?></p>
-                        <a href="#" class="btn btn-primary">Detail</a>
+                        <a href="siswa-dudi/mading.php?id=<?php echo $id ?>" class="btn btn-primary">Detail</a>
                     </div>
                 </div>
                 <?php
