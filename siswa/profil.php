@@ -1,7 +1,8 @@
 <?php
+session_start();
   include '../koneksi.php';
-  $id_siswa = $_GET['id'];
-  $query = "SELECT * FROM tb_siswa WHERE id_siswa='$id_siswa'";
+  $id_siswa = $_SESSION['id_user'];
+  $query = "SELECT * FROM tb_user WHERE id_user='$id_siswa'";
   $sql = mysqli_query($koneksi, $query);
   $row = mysqli_fetch_assoc($sql);
 
@@ -73,21 +74,22 @@
         <!-- Isi Profil -->
         <div class="container border border-dark rounded">
             <div class="container">
-                <form action="edit_mading_proses.php?id=<?php echo $id_magang ?>" method="post">
-                    <h1>"Nama Siswa"</h1>
+                <form action="" method="post">
+                    <h1><?php echo $row['nama'] ?></h1>
                     <div class="form-group">
-                    <label for="judul">Judul</label>
-                        <input type="text" class="form-control w-50" name="judul" aria-describedby="helpId"
-                            value="<?php echo $row['nama'] ?>">
+                    <label for="judul">Username</label>
+                    <input type="text" disabled class="form-control w-50" name="pembuat" aria-describedby="helpId"
+                            value="<?php echo $row['id_user'] ?>">
                     </div>
                     <div class="form-group">
-                        <label for="isi">Isi</label>
-                        <textarea class="form-control w-50" name="isi" rows="3"><?php echo $row['jenis_kelamin'] ?></textarea>
+                        <label for="isi">Password</label>
+                        <input type="password" disabled class="form-control w-50" name="pembuat" aria-describedby="helpId"
+                            value="<?php echo $row['kata_sandi'] ?>">
                     </div>
                     <div class="form-group">
-                        <label for="pembuat">Pembuat</label>
-                        <input type="text" class="form-control w-50" name="pembuat" aria-describedby="helpId"
-                            value="<?php echo $row['nik'] ?>">
+                        <label for="pembuat">Jurusan</label>
+                        <input type="text" disabled class="form-control w-50" name="pembuat" aria-describedby="helpId"
+                            value="<?php echo $row['jurusan'] ?>">
 
                     </div>
 
