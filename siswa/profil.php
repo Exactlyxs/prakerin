@@ -1,5 +1,10 @@
 <?php
 session_start();
+$id = $_SESSION['id_user'];
+if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../index.php'</script>";
+}
+else{
   include '../koneksi.php';
   $id_siswa = $_SESSION['id_user'];
   $query = "SELECT * FROM tb_user WHERE id_user='$id_siswa'";
@@ -110,3 +115,4 @@ session_start();
 </body>
 
 </html>
+<?php }?>

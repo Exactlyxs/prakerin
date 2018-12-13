@@ -1,10 +1,16 @@
 <?php
+session_start();
+
+$id = $_SESSION['id_user'];
+if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+}
+else{
   include '../../koneksi.php';
   $id_mading = $_GET['id'];
   $query = "SELECT * FROM tb_mading WHERE id_mading='$id_mading'";
   $sql = mysqli_query($koneksi, $query);
   $row = mysqli_fetch_assoc($sql);
-  // $hapus = "DELETE tb_magang WHERE id_magang = '$id_magang'";
 ?>
 
 <html>
@@ -105,3 +111,4 @@
 </body>
 
 </html>
+<?php }?>

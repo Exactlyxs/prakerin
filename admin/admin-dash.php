@@ -1,17 +1,28 @@
 <html>
 <?php
 session_start();
+
+$id = $_SESSION['id_user'];
+//print_r($id);
+if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../index.php'</script>";
+}
+else{
+
+
 	include '../koneksi.php';
 	$querymading = "SELECT * FROM tb_mading";
 	$querymagang = "SELECT * FROM tb_magang";
 
-  $sql1 = mysqli_query($koneksi, $querymading);
+    $sql1 = mysqli_query($koneksi, $querymading);
 	$sql2 = mysqli_query($koneksi, $querymagang);
 
  ?>
 <!-- link css and Bootsrap -->
 
-<!-- <head>
+<!-- link css and Bootsrap -->
+
+<head>
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/style_Sidebar.css">
@@ -23,24 +34,24 @@ session_start();
 
 
 
-</head> -->
+</head>
 
 <body>
     <!-- SideBar Logo -->
-    <!-- <div id="wrapper" class="animate">
+    <div id="wrapper" class="animate">
         <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
             <span class="navbar-toggler-icon leftmenutrigger"></span>
-            <a class="navbar-brand" href="#"> <img src="../assets/images/smkLogo.png" width="30"></a>
+            <a class="navbar-brand" href="admin-dash.php"> <img src="../assets/images/smkLogo.png" width="30"></a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- SideBar Isi -->
-            <!-- <div class="collapse navbar-collapse" id="navbarText">
+            <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav animate side-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">DASHBOARD
+                        <a class="nav-link" href="admin-dash.php">DASHBOARD
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -49,7 +60,7 @@ session_start();
                     </li>
                 </ul>
                 <!-- NavBar -->
-                <!-- <ul class="navbar-nav ml-md-auto d-md-flex">
+                <ul class="navbar-nav ml-md-auto d-md-flex">
                     <li class="nav-item dropdown icon">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -63,15 +74,11 @@ session_start();
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="../index.php">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../logout.php">LOGOUT</a>
                     </li>
-                </ul> -->
-            <!-- </div> --> -->
-        <!-- </nav> --> -->
-
-        <?php
-    include 'sidebar.php';
-?>
+                </ul>
+            </div>
+        </nav>
         <!-- Content -->
         <!-- Mading -->
         <div class="container-fluid">
@@ -148,8 +155,9 @@ session_start();
                                     <td>
                                         <?php echo $row['nama_magang'] ?>
                                     </td>
-                                    <td><a href="dudi/edit_dudi.php?id=<?php echo $id ?>"" class="btn btn-primary m-2">Edit</a>
-                                    <a href="dudi/delete_dudi.php?id=<?php echo $id ?>"" class="btn btn-danger m-2">Hapus</a></td>
+                                    <td><a href="dudi/edit_dudi.php?id=<?php echo $id ?>"" class=" btn btn-primary m-2">Edit</a>
+                                        <a href="dudi/delete_dudi.php?id=<?php echo $id ?>"" class=" btn btn-danger
+                                            m-2">Hapus</a></td>
                                 </tr>
                                 <?php
                                 $no++;
@@ -162,6 +170,18 @@ session_start();
         </div>
     </div>
 
-    <?php
-        include 'footer.php'
-    ?>
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
+<?php 
+}
+?>

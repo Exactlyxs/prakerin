@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+
+  $id = $_SESSION['id_user'];
+  if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+  }
+  else{
+?>
 <html>
 
 <!-- link css and Bootsrap -->
@@ -93,3 +102,4 @@
 </body>
 
 </html>
+  <?php }?>
