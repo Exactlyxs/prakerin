@@ -14,9 +14,7 @@ if(isset($_POST['submit'])){
 
 	  	if ($sql) {// cek jika proses menyimpan sukses atau tidak
 	    //jika sukses
-				echo "sukses";
-				header('location:../admin-dash.php');
-//      print_r($_POST);
+			echo "<script>alert('Berhasil Menambah Tempat Prakerin');window.location='../admin-dash.php'</script>";
    	 }else{
 	    //jika gagal
 	    echo "gagal";

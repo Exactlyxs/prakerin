@@ -17,9 +17,7 @@
 		if (mysqli_query($koneksi, $query)) {
 			$lastId = mysqli_insert_id($koneksi);
 			
-			echo "Pengumuman sudah ditempel";
-			header('location:../admin-dash.php');
-
+			echo "<script>alert('Berhasil Menambah Mading');window.location='../admin-dash.php'</script>";
 		}
 		else{
 			echo "Gagal Memasukkan";
