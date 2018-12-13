@@ -95,7 +95,7 @@ else{
                         <option value="5">5</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Jurusan</label>
                     <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
                         <option value="-">Pilih Jurusan :</option>
@@ -108,6 +108,17 @@ else{
                         <option value="KI">Kimia Industri</option>
                         <option value="DI">Design Interior</option>
                     </select>
+                </div> -->
+                <div class="form-group">
+                    <label>Jurusan</label><br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Pekerja Sosial <br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Teknik Kompter dan Jaringan <br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Bordcasting <br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Multimedia <br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Animasi <br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Rekayasa Perangakt Lunak <br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Kimia Industri <br>
+                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Desain Interior
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-md btn-primary">Simpan</button>
