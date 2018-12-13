@@ -8,7 +8,7 @@ if (!$id) {
 else{
 
 
-	include '../koneksi.php';
+	include '../../koneksi.php';
   $querymading = "SELECT * FROM tb_mading";
 	$querymagang = "SELECT * FROM tb_magang";
 
@@ -24,8 +24,8 @@ else{
 
 <head>
   <title>Siswa</title>
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/style_Sidebar.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style_Sidebar.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -41,7 +41,7 @@ else{
   <div id="wrapper" class="animate">
     <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
       <span class="navbar-toggler-icon leftmenutrigger"></span>
-      <a class="navbar-brand" href="siswa-dash.php?id="> <img src="../assets/images/smkLogo.png" width="30"></a>
+      <a class="navbar-brand" href="../admin-dash.php?id="> <img src="../../assets/images/smkLogo.png" width="30"></a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
         aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@ else{
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav animate side-nav">
           <li class="nav-item">
-            <a class="nav-link" href="siswa-dash.php">DASHBOARD
+            <a class="nav-link" href="../admin-dash.php">DASHBOARD
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -75,7 +75,7 @@ else{
             </div>
           </li>
           <li class="nav-item icon">
-            <a class="nav-link btn btn-danger btn-sm" href="../logout.php">LOGOUT</a>
+            <a class="nav-link btn btn-danger btn-sm" href="../../logout.php">LOGOUT</a>
           </li>
         </ul>
       </div>
@@ -143,6 +143,28 @@ else{
             </table>
           </div>
         </div>
+        <div class="col-lg-6">
+          <h1>News</h1>
+          <div class="mading">
+            <?php
+                while ($row = mysqli_fetch_assoc($sql1)):
+                $id = $row['id_mading'];
+               ?>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <?php echo $row['judul']?>
+                </h5>
+                <p class="card-text">
+                  <?php echo $row['isi'] ?>
+                </p>
+                <a href="siswa-dudi/mading.php?id=<?php echo $id ?>" class="btn btn-primary">Detail</a>
+              </div>
+            </div>
+            <?php
+                 endwhile; ?>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -153,7 +175,7 @@ else{
       crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="../../assets/js/main.js"></script>
 
 </body>
 <?php 

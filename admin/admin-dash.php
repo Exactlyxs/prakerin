@@ -12,10 +12,12 @@ else{
 
 	include '../koneksi.php';
 	$querymading = "SELECT * FROM tb_mading";
-	$querymagang = "SELECT * FROM tb_magang";
+    $querymagang = "SELECT * FROM tb_magang";
+    $queryuser = "SELECT * FROM tb_user";
 
     $sql1 = mysqli_query($koneksi, $querymading);
-	$sql2 = mysqli_query($koneksi, $querymagang);
+    $sql2 = mysqli_query($koneksi, $querymagang);
+    $sql3 = mysqli_query($koneksi, $queryuser);
 
  ?>
 <!-- link css and Bootsrap -->
@@ -130,6 +132,7 @@ else{
                         </table>
                     </div>
                 </div>
+                <!-- Tempat Prakerin -->
                 <div class="col-lg-6">
                     <h1>Manage Tempat Prakerin</h1>
                     <a href="dudi/add_dudi.php" class="btn btn-success my-2">Tambah</a>
@@ -157,6 +160,48 @@ else{
                                     </td>
                                     <td><a href="dudi/edit_dudi.php?id=<?php echo $id ?>"" class=" btn btn-primary m-2">Edit</a>
                                         <a href="dudi/delete_dudi.php?id=<?php echo $id ?>"" class=" btn btn-danger
+                                            m-2">Hapus</a></td>
+                                </tr>
+                                <?php
+                                $no++;
+                                endwhile; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- User -->
+                <div class="col-lg-6">
+                    <h1>Manage User</h1>
+                    <a href="user/add_user.php" class="btn btn-success my-2">Tambah</a>
+                    <div class="mading">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>Jurusan</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                while ($row = mysqli_fetch_assoc($sql3)):
+                                $id = $row['id_user'];
+													 ?>
+                                <tr>
+                                    <td scope="row">
+                                        <?php echo $no ?>
+                                    </td>
+                                    <td scope = "row">
+                                        <?php echo $row['nama'] ?>
+                                    </td>
+                                    <td scope = "row">
+                                        <?php echo $row['jurusan'] ?>
+                                    </td>
+                                    <td><a href="user/edit_user.php?id=<?php echo $id ?>"" class=" btn btn-primary m-2">Edit</a>
+                                        <a href="user/delete_user.php?id=<?php echo $id ?>"" class=" btn btn-danger
                                             m-2">Hapus</a></td>
                                 </tr>
                                 <?php
