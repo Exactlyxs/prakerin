@@ -117,7 +117,7 @@ else{
                     </select>
                 </div>
 
-                <a href="delete_dudiAction.php?id=<?php echo $id_magang ?>" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');">Hapus</a>
+                <a href="delete_dudiAction.php?id=<?php echo $id_magang ?>" class="btn btn-md btn-primary" onclick="return confirm('Delete <?php echo $row['nama_magang'] ?>');">Hapus</a>
             </form>
         </div>
 

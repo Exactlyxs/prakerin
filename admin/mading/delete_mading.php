@@ -94,7 +94,7 @@ else{
                         <input type="text" class="form-control w-50" disabled name="pembuat" aria-describedby="helpId"
                             value="<?php echo $row['pembuat'] ?>">
                     </div>
-                    <a href="delete_mading_proses.php?id=<?php echo $id_mading ?>" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');" >Hapus</a>
+                    <a href="delete_mading_proses.php?id=<?php echo $id_mading ?>" class="btn btn-md btn-primary" onclick="return confirm('Delete <?php echo $row['judul'] ?>');" >Hapus</a>
             </div>
             </form>
         </div>
