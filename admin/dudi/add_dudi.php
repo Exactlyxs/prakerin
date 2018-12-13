@@ -1,5 +1,5 @@
 <html>
-<?php 
+<?php
 session_start();
 
 $id = $_SESSION['id_user'];

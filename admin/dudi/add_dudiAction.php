@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 	$alamat_magang = $_POST['alamat'];
 	$deskripsi_magang = $_POST['deskripsi'];
   $kapasitas = $_POST['kapasitas'];
-	$genre = $_POST['jurusan'];
+	$genre = implode(', ', $_POST['jurusan']);
 
 		$query = "INSERT INTO tb_magang (nama_magang, alamat_magang, deskripsi_magang, kapasitas_magang, genre) VALUES ('$nama_magang', '$alamat_magang', '$deskripsi_magang', '$kapasitas', '$genre')";
 	  	$sql  = mysqli_query($koneksi,$query);
@@ -16,7 +16,8 @@ if(isset($_POST['submit'])){
 	    //jika sukses
 				echo "sukses";
 				header('location:../admin-dash.php');
-	 	 }else{
+//      print_r($_POST);
+   	 }else{
 	    //jika gagal
 	    echo "gagal";
 
