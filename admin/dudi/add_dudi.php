@@ -111,14 +111,14 @@ else{
                 </div> -->
                 <div class="form-group">
                     <label>Jurusan</label><br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Pekerja Sosial <br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Teknik Kompter dan Jaringan <br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Bordcasting <br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Multimedia <br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Animasi <br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Rekayasa Perangakt Lunak <br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Kimia Industri <br>
-                    <input type="checkbox" name="magang" id="" aria-describedby="helpId">Desain Interior
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="PS">Pekerja Sosial <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="TKJ">Teknik Kompter dan Jaringan <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="BCT">Bordcasting <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="MM">Multimedia <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="ANM">Animasi <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="RPL">Rekayasa Perangakt Lunak <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="KI">Kimia Industri <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="DI">Desain Interior
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-md btn-primary">Simpan</button>
