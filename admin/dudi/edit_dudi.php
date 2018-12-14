@@ -1,9 +1,18 @@
 <?php
+session_start();
+
+$id = $_SESSION['id_user'];
+if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+}
+else{
     include '../../koneksi.php';
     $id_magang = $_GET['id'];
     $query = "SELECT * FROM tb_magang WHERE id_magang='$id_magang'";
     $sql = mysqli_query($koneksi, $query);
     $row = mysqli_fetch_assoc($sql);
+
+
 ?>
 
 <html>
@@ -62,7 +71,7 @@
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../../logout.php">LOGOUT</a>
                     </li>
                 </ul>
             </div>
@@ -95,21 +104,20 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>
-                    <select multiple class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
-                        <option value="<?php echo $row['genre'] ?>"><?php echo $row['genre'] ?></option>
-                        <option value="PS, ">Pekerja Sosial</option>
-                        <option value="TKJ, ">Teknik Komputer Jaringan</option>
-                        <option value="BCT, ">Bordcasting</option>
-                        <option value="ANM, ">Animasi</option>
-                        <option value="MM, ">Multimedia</option>
-                        <option value="RPL, ">Rekayasa Perangkat Lunak</option>
-                        <option value="KI, ">Kimia Industri</option>
-                        <option value="DI, ">Design Interior</option>
-                    </select>
+                    <label>Jurusan</label><br>
+                    <label>Nama Prakerin</label>
+                    <input type="text" disabled name="genre" class="form-control w-50" value="<?php echo $row['genre'] ?>" aria-describedby="helpId">
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="PS" >Pekerja Sosial <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="TKJ" >Teknik Kompter dan Jaringan <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="BCT" >Bordcasting <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="MM" >Multimedia <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="ANM" >Animasi <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="RPL" >Rekayasa Perangakt Lunak <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="KI" >Kimia Industri <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="DI">Desain Interior
                 </div>
 
-                <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');>Edit</button>
+                <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');">Edit</button>
             </form>
         </div>
 
@@ -125,3 +133,4 @@
 </body>
 
 </html>
+<?php }?>

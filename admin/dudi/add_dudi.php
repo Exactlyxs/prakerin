@@ -1,4 +1,13 @@
 <html>
+<?php
+session_start();
+
+$id = $_SESSION['id_user'];
+if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+}
+else{
+?>
 
 <!-- link css and Bootsrap -->
 
@@ -54,7 +63,7 @@
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../../logout.php">LOGOUT</a>
                     </li>
                 </ul>
             </div>
@@ -87,21 +96,18 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>                    
-                    <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
-                        <option value="-">Pilih Jurusan :</option>
-                        <option value="PS">Pekerja Sosial</option>
-                        <option value="TKJ">Teknik Komputer Jaringan</option>
-                        <option value="BCT">Bordcasting</option>
-                        <option value="ANM">Animasi</option>
-                        <option value="MM">Multimedia</option>
-                        <option value="RPL">Rekayasa Perangkat Lunak</option>
-                        <option value="KI">Kimia Industri</option>
-                        <option value="DI">Design Interior</option>
-                    </select>
+                    <label>Jurusan</label><br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="PS">Pekerja Sosial <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="TKJ">Teknik Kompter dan Jaringan <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="BCT">Bordcasting <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="MM">Multimedia <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="ANM">Animasi <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="RPL">Rekayasa Perangakt Lunak <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="KI">Kimia Industri <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="DI">Desain Interior
                 </div>
 
-                <button type="submit" name="submit" class="btn btn-md btn-primary">Simpan</button>
+                <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Ingin Menambahkan Tempat Prakerin?');">Simpan</button>
             </form>
         </div>
 
@@ -113,7 +119,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
         <script src="../../assets/js/main.js"></script>
+        
 
 </body>
-
 </html>
+<?php }?>

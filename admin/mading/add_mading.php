@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+
+  $id = $_SESSION['id_user'];
+  if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+  }
+  else{
+?>
 <html>
 
 <!-- link css and Bootsrap -->
@@ -54,7 +63,7 @@
             </div>
           </li>
           <li class="nav-item icon">
-            <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+            <a class="nav-link btn btn-danger btn-sm" href="../../logout.php">LOGOUT</a>
           </li>
         </ul>
       </div>
@@ -76,7 +85,7 @@
             <label for="pembuat">Pembuat</label>
             <input type="text" class="form-control w-50" name="pembuat" aria-describedby="helpId" placeholder="">
           </div>
-          <button type="submit" class="btn btn-md btn-primary" name="submit">Submit</button>
+          <button type="submit" class="btn btn-md btn-primary" name="submit" onclick="return confirm('Ingin Menambahkan Mading?');">Submit</button>
       </div>
       </form>
       </div>
@@ -93,3 +102,4 @@
 </body>
 
 </html>
+  <?php }?>

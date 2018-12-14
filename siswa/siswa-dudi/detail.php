@@ -1,4 +1,11 @@
-<?php 
+<?php
+session_start();
+
+$id = $_SESSION['id_user'];
+if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+}
+else{
     include '../../koneksi.php';
     $id_magang = $_GET['id'];
     $query = "SELECT * FROM tb_magang WHERE id_magang='$id_magang'";
@@ -61,7 +68,7 @@
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../../logout.php">LOGOUT</a>
                     </li>
                 </ul>
             </div>
@@ -90,3 +97,4 @@
 </body>
 
 </html>
+<?php }?>

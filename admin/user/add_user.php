@@ -1,4 +1,5 @@
-<?php
+<html>
+<?php 
 session_start();
 
 $id = $_SESSION['id_user'];
@@ -6,15 +7,10 @@ if (!$id) {
     echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
 }
 else{
+include "../../koneksi.php";
 
-    include '../../koneksi.php';
-    $id_magang = $_GET['id'];
-    $query = "SELECT * FROM tb_magang WHERE id_magang='$id_magang'";
-    $sql = mysqli_query($koneksi, $query);
-    $row = mysqli_fetch_assoc($sql);
 ?>
 
-<html>
 
 <!-- link css and Bootsrap -->
 
@@ -27,7 +23,65 @@ else{
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Mina:700" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 
+    <style>
+        #form label{float:left; width:140px;}
+   #error_msg{color:red; font-weight:bold;}
+   #msg{color:green; font-weight:bold;}
+    </style>
+    <!-------------- Jquery Password ------------------>
+    <script>
+        $(document).ready(function(){
+       var $submitBtn = $("#form input[type='submit']");
+       var $passwordBox = $("#password");
+       var $confirmBox = $("#confirm_password");
+       var $errorMsg =  $('<span id="error_msg">Password Tidak Sama.</span>');
+       var $Msg =  $('<span id="msg">Password Sama.</span>');
+
+       // This is incase the user hits refresh - some browsers will maintain the disabled state of the button.
+       $submitBtn.removeAttr("disabled");
+
+       function checkMatchingPasswords(){
+           if($confirmBox.val() != "" && $passwordBox.val != ""){
+               if( $confirmBox.val() != $passwordBox.val() ){
+                   $submitBtn.attr("disabled", "disabled");
+                   $errorMsg.insertAfter($submitBtn);
+               }
+               else{
+                $Msg.insertAfter($submitBtn);
+               }
+           }
+       }
+
+       function resetPasswordError(){
+           $submitBtn.removeAttr("disabled");
+           var $errorCont = $("#error_msg");
+           if($errorCont.length > 0){
+               $errorCont.remove();
+           }  
+       }
+
+
+       $("#confirm_password, #password")
+            .on("keydown", function(e){
+               /* only check when the tab or enter keys are pressed
+                * to prevent the method from being called needlessly  */
+               if(e.keyCode == 13 || e.keyCode == 9) {
+                   checkMatchingPasswords();
+               }
+            })
+            .on("blur", function(){                    
+               // also check when the element looses focus (clicks somewhere else)
+               checkMatchingPasswords();
+           })
+           .on("focus", function(){
+               // reset the error message when they go to make a change
+               resetPasswordError();
+           })
+
+   });
+ </script>
 
 
 </head>
@@ -77,35 +131,38 @@ else{
         </nav>
         <!-- Batas Sidebar -->
         <div class="container border border-dark rounded">
-            <h1>Hapus Tempat Magang ini?</h1>
-            <form action="" method="post">
-                <div class="form-group">
-                    <label>Nama Prakerin</label>
-                    <input type="text" name="magang" disabled class="form-control w-50" value="<?php echo $row['nama_magang'] ?>" aria-describedby="helpId">
-                </div>
-                <div class="form-group">
-                    <label>Alamat Prakerin</label>
-                    <textarea name="alamat" disabled class="form-control w-50" rows="5"><?php echo $row['alamat_magang'] ?></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Deskripsi Prakerin</label>
-                    <textarea name="deskripsi" disabled class="form-control w-50" rows="5"><?php echo $row['deskripsi_magang'] ?></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Kapasitas Prakerin</label>
-                    <select class="form-control w-50" name="kapasitas" disabled id="exampleFormControlSelect1">
-                        <option value="<?php echo $row['kapasitas_magang'] ?>"><?php echo $row['kapasitas_magang'] ?></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
+            <h1>Tambah User</h1>
+            <!-- isi Form -->
+            <form id="form" name="form" method="post" action="add_userAction.php">
+            <label for="username">Name : </label>
+                <input name="nama" id="nama" type="text" class="form-control w-50" autofocus=""
+                        aria-describedby="helpId" /></label><br />
+                <label for="username">Username / NISN : </label>
+                <input name="username" id="username" type="text" class="form-control w-50" autofocus=""
+                        aria-describedby="helpId" /></label><br />
+
+                <label for="password">Password :</label>
+                <input name="password" id="password" type="password" class="form-control w-50" autofocus=""
+                        aria-describedby="helpId"/><br />
+
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password" id="confirm_password" class="form-control w-50" autofocus=""
+                        aria-describedby="helpId" /><br />
+                        <div class="form-group">
+                    <label>Role</label>
+                    <select class="form-control w-50" name="role" id="exampleFormControlSelect1">
+                        <option value="-">Pilih Role :</option>
+                        <option value="4">Siswa</option>
+                        <option value="3">Kaprog</option>
+                        <option value="2">Wakasek</option>
+                        <option value="1">Super Admin</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Jurusan</label>
-                    <select class="form-control w-50" name="jurusan" disabled id="exampleFormControlSelect1">
-                        <option value="<?php echo $row['genre'] ?>"><?php echo $row['genre'] ?></option>
+                    <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
+                        <option value="-">Pilih Jurusan :</option>
+                        <option value="Staff">Staff</option>
                         <option value="PS">Pekerja Sosial</option>
                         <option value="TKJ">Teknik Komputer Jaringan</option>
                         <option value="BCT">Bordcasting</option>
@@ -117,8 +174,12 @@ else{
                     </select>
                 </div>
 
-                <a href="delete_dudiAction.php?id=<?php echo $id_magang ?>" class="btn btn-md btn-primary" onclick="return confirm('Delete <?php echo $row['nama_magang'] ?>');">Hapus</a>
+                <input type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Ingin Menambahkan User?');" value="Masukkan" />
             </form>
+
+
+
+            <!-- Batas Form -->
         </div>
 
         <!-- JS -->
@@ -129,6 +190,7 @@ else{
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
         <script src="../../assets/js/main.js"></script>
+
 
 </body>
 

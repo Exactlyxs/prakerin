@@ -6,8 +6,7 @@
 	$sql = mysqli_query($koneksi, $query);
     
     if ($sql) {
-		echo "Berhasil DiHapus";
-		header("location:../admin-dash.php");
+		echo "<script>alert('Berhasil Menghapus Mading');window.location='../admin-dash.php'</script>";
 	}
 	else{
 		echo "Gagal Di Hapus";

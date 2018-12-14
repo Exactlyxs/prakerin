@@ -1,10 +1,16 @@
-<?php 
+<?php
+session_start();
+
+$id = $_SESSION['id_user'];
+if (!$id) {
+    echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+}
+else{
   include '../../koneksi.php';
   $id_mading = $_GET['id'];
   $query = "SELECT * FROM tb_mading WHERE id_mading='$id_mading'";
   $sql = mysqli_query($koneksi, $query);
   $row = mysqli_fetch_assoc($sql);
-  // $hapus = "DELETE tb_magang WHERE id_magang = '$id_magang'";
 ?>
 
 <html>
@@ -63,7 +69,7 @@
                         </div>
                     </li>
                     <li class="nav-item icon">
-                        <a class="nav-link btn btn-danger btn-sm" href="#">LOGOUT</a>
+                        <a class="nav-link btn btn-danger btn-sm" href="../../logout.php">LOGOUT</a>
                     </li>
                 </ul>
             </div>
@@ -88,7 +94,7 @@
                         <input type="text" class="form-control w-50" disabled name="pembuat" aria-describedby="helpId"
                             value="<?php echo $row['pembuat'] ?>">
                     </div>
-                    <a href="delete_mading_proses.php?id=<?php echo $id_mading ?>" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');" >Hapus</a>
+                    <a href="delete_mading_proses.php?id=<?php echo $id_mading ?>" class="btn btn-md btn-primary" onclick="return confirm('Delete <?php echo $row['judul'] ?>');" >Hapus</a>
             </div>
             </form>
         </div>
@@ -105,3 +111,4 @@
 </body>
 
 </html>
+<?php }?>
