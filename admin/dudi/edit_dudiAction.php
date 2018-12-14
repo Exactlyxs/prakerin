@@ -8,7 +8,7 @@
 		$alamat = $_POST['alamat'];
 		$deskripsi = $_POST['deskripsi'];
 		$kapasitas =$_POST['kapasitas'];
-		$jurusan = $_POST['jurusan'];
+		$jurusan = implode(', ', $_POST['jurusan']);
 		$query = "UPDATE tb_magang SET nama_magang = '$magang', alamat_magang = '$alamat', deskripsi_magang = '$deskripsi', kapasitas_magang = '$kapasitas', genre = '$jurusan' WHERE id_magang = '$id'";
 		$sql = mysqli_query($koneksi, $query);
 		if ($sql) {

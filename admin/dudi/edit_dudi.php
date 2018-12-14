@@ -11,6 +11,10 @@ else{
     $query = "SELECT * FROM tb_magang WHERE id_magang='$id_magang'";
     $sql = mysqli_query($koneksi, $query);
     $row = mysqli_fetch_assoc($sql);
+
+    $newrow =  mysqli_fetch_array($sql);
+    $cek = explode(', ', $newrow['genre']);
+
 ?>
 
 <html>
@@ -102,21 +106,18 @@ else{
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Jurusan</label>
-                    <select multiple class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
-                        <option value="<?php echo $row['genre'] ?>"><?php echo $row['genre'] ?></option>
-                        <option value="PS, ">Pekerja Sosial</option>
-                        <option value="TKJ, ">Teknik Komputer Jaringan</option>
-                        <option value="BCT, ">Bordcasting</option>
-                        <option value="ANM, ">Animasi</option>
-                        <option value="MM, ">Multimedia</option>
-                        <option value="RPL, ">Rekayasa Perangkat Lunak</option>
-                        <option value="KI, ">Kimia Industri</option>
-                        <option value="DI, ">Design Interior</option>
-                    </select>
+                    <label>Jurusan</label><br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="PS" <?php in_array('PS', $cek) ? print 'checked' : ''; ?>>Pekerja Sosial <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="TKJ" <?php in_array('TKJ', $cek) ? print 'checked' : ''; ?>>Teknik Kompter dan Jaringan <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="BCT" <?php in_array('BCT', $cek) ? print 'checked' : ''; ?>>Bordcasting <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="MM" <?php in_array('MM', $cek) ? print 'checked' : ''; ?>>Multimedia <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="ANM" <?php in_array('ANM', $cek) ? print 'checked' : ''; ?>>Animasi <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="RPL" <?php in_array('RPL', $cek) ? print 'checked' : ''; ?>>Rekayasa Perangakt Lunak <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="KI" <?php in_array('KI', $cek) ? print 'checked' : ''; ?>>Kimia Industri <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="DI" <?php in_array('DI', $cek) ? print 'checked' : ''; ?>>Desain Interior
                 </div>
 
-                <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');>Edit</button>
+                <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');">Edit</button>
             </form>
         </div>
 
