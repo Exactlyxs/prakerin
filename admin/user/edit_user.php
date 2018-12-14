@@ -1,5 +1,4 @@
-<html>
-<?php 
+<?php
 session_start();
 
 $id = $_SESSION['id_user'];
@@ -7,10 +6,14 @@ if (!$id) {
     echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
 }
 else{
-include "../../koneksi.php";
-
+    include '../../koneksi.php';
+    $id_user = $_GET['id'];
+    $query = "SELECT * FROM tb_user WHERE id_user='$id_user'";
+    $sql = mysqli_query($koneksi, $query);
+    $row = mysqli_fetch_assoc($sql);
 ?>
 
+<html>
 
 <!-- link css and Bootsrap -->
 
@@ -133,24 +136,25 @@ include "../../koneksi.php";
         <div class="container border border-dark rounded">
             <h1>Tambah User</h1>
             <!-- isi Form -->
-            <form id="form" name="form" method="post" action="add_userAction.php">
+            <form id="form" name="form" method="post" action="edit_userAction.php?id=<?php echo $row['id_user'] ?>">
             <label for="username">Name : </label>
                 <input name="nama" id="nama" type="text" class="form-control w-50" autofocus=""
-                        aria-describedby="helpId" /></label><br />
+                        aria-describedby="helpId" value="<?php echo $row['nama'] ?>" /></label><br />
                 <label for="username">Username / NISN : </label>
                 <input name="username" id="username" type="text" class="form-control w-50" autofocus=""
-                        aria-describedby="helpId" /></label><br />
+                        aria-describedby="helpId" disabled value="<?php echo $row['id_user'] ?>"/></label><br />
 
                 <label for="password">Password :</label>
                 <input name="password" id="password" type="password" class="form-control w-50" autofocus=""
-                        aria-describedby="helpId"/><br />
+                        aria-describedby="helpId" value="<?php echo $row['kata_sandi'] ?>"/><br />
 
                 <label for="confirm_password">Confirm Password:</label>
                 <input type="password" name="confirm_password" id="confirm_password" class="form-control w-50" autofocus=""
-                        aria-describedby="helpId" /><br />
+                        aria-describedby="helpId" value="<?php echo $row['kata_sandi'] ?>" /><br />
                         <div class="form-group">
                     <label>Role</label>
                     <select class="form-control w-50" name="role" id="exampleFormControlSelect1">
+                        <option value="<?php echo $row['role'] ?>"><?php echo $row['role'] ?></option>
                         <option value="-">Pilih Role :</option>
                         <option value="4">Siswa</option>
                         <option value="3">Kaprog</option>
@@ -161,6 +165,7 @@ include "../../koneksi.php";
                 <div class="form-group">
                     <label>Jurusan</label>
                     <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
+                        <option value="<?php echo $row['jurusan'] ?>"><?php echo $row['jurusan'] ?></option>
                         <option value="-">Pilih Jurusan :</option>
                         <option value="Staff">Staff</option>
                         <option value="PS">Pekerja Sosial</option>
@@ -174,7 +179,7 @@ include "../../koneksi.php";
                     </select>
                 </div>
 
-                <input type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Ingin Menambahkan User?');" value="Masukkan" />
+                <input type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Ingin Memperbaharui User?');" value="Perbarui" />
             </form>
 
 

@@ -12,8 +12,7 @@
 		$query = "UPDATE tb_magang SET nama_magang = '$magang', alamat_magang = '$alamat', deskripsi_magang = '$deskripsi', kapasitas_magang = '$kapasitas', genre = '$jurusan' WHERE id_magang = '$id'";
 		$sql = mysqli_query($koneksi, $query);
 		if ($sql) {
-			echo "Data Berhasil Update";
-			header("location:../admin-dash.php");
+			echo "<script>alert('Berhasil Memperbaharui Tempat Prakerin');window.location='../admin-dash.php'</script>";
 		}
 		else{
 			echo "Data Gagal di Update!!";

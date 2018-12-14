@@ -85,7 +85,7 @@
             <label for="pembuat">Pembuat</label>
             <input type="text" class="form-control w-50" name="pembuat" aria-describedby="helpId" placeholder="">
           </div>
-          <button type="submit" class="btn btn-md btn-primary" name="submit">Submit</button>
+          <button type="submit" class="btn btn-md btn-primary" name="submit" onclick="return confirm('Ingin Menambahkan Mading?');">Submit</button>
       </div>
       </form>
       </div>

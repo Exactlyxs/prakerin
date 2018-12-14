@@ -95,20 +95,6 @@ else{
                         <option value="5">5</option>
                     </select>
                 </div>
-                <!-- <div class="form-group">
-                    <label>Jurusan</label>
-                    <select class="form-control w-50" name="jurusan" id="exampleFormControlSelect1">
-                        <option value="-">Pilih Jurusan :</option>
-                        <option value="PS">Pekerja Sosial</option>
-                        <option value="TKJ">Teknik Komputer Jaringan</option>
-                        <option value="BCT">Bordcasting</option>
-                        <option value="ANM">Animasi</option>
-                        <option value="MM">Multimedia</option>
-                        <option value="RPL">Rekayasa Perangkat Lunak</option>
-                        <option value="KI">Kimia Industri</option>
-                        <option value="DI">Design Interior</option>
-                    </select>
-                </div> -->
                 <div class="form-group">
                     <label>Jurusan</label><br>
                     <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="PS">Pekerja Sosial <br>
@@ -121,7 +107,7 @@ else{
                     <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="DI">Desain Interior
                 </div>
 
-                <button type="submit" name="submit" class="btn btn-md btn-primary">Simpan</button>
+                <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Ingin Menambahkan Tempat Prakerin?');">Simpan</button>
             </form>
         </div>
 
@@ -133,6 +119,7 @@ else{
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
         <script src="../../assets/js/main.js"></script>
+        
 
 </body>
 </html>
