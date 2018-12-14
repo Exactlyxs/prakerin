@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2018 at 05:57 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Dec 14, 2018 at 02:32 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,7 +42,6 @@ CREATE TABLE `tb_kelompok` (
 
 INSERT INTO `tb_kelompok` (`id_kelompok`, `nisn`, `id_magang`, `created_at`, `updated_at`) VALUES
 (1, '0013849419', 1, '2018-11-23 06:52:22', '0000-00-00 00:00:00'),
-(2, '0016336277', 10, '2018-11-23 06:52:22', '0000-00-00 00:00:00'),
 (3, '0019399387', 8, '2018-11-23 06:54:34', '0000-00-00 00:00:00'),
 (4, '0003222516', 1, '2018-11-23 06:54:34', '0000-00-00 00:00:00'),
 (5, '0013676597', 1, '2018-11-23 06:55:59', '0000-00-00 00:00:00'),
@@ -72,8 +71,9 @@ CREATE TABLE `tb_mading` (
 --
 
 INSERT INTO `tb_mading` (`id_mading`, `judul`, `isi`, `pembuat`, `created_at`, `updated_at`) VALUES
-(1, 'liburan sekolah 1 tahun', 'tapi dustai', 'Pa Krido', '2018-11-23 07:33:13', '0000-00-00 00:00:00'),
-(2, 'update patch 1.1', 'tapi dustai jua', 'admin', '2018-11-23 07:33:13', '0000-00-00 00:00:00');
+(7, 'awodkaowasdaw', 'aoskdoawkdawda', 'aoskdoakwsdaw', '2018-12-03 14:49:25', '0000-00-00 00:00:00'),
+(8, 'Testing', 'Sulthoniesaudak kwidamsdnw jasidawkdaksdu dmakwdmajsnduanb amsdkawdmaisdj bawjdnaw,lmawd msidawjdi jiaowjdiajsoi ahouwdaoskdjio jawlkdjaiw', 'jadwidljasldiawd', '2018-12-03 14:54:27', '0000-00-00 00:00:00'),
+(9, 'Lolawdk', 'Lorem ipsum dolor sit amet, ipsum pulvinar, elit placerat leo condimentum aenean enim. Velit curabitur senectus a eu vehicula tempor, dui sodales, vitae elementum. Vel aut, rutrum tempus habitasse vel ut pretium ante. Laoreet dis ante, vestibulum feugiat. Ante lorem massa enim, vestibulum ac vestibulum cras neque, dignissim pellentesque hac sem imperdiet molestie, bibendum curabitur aliquam. Auctor urna dolor platea. Nunc amet in velit elit curabitur. Lacus convallis in diam, erat elementum sem ', 'asdaw', '2018-12-03 14:55:37', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -97,15 +97,14 @@ CREATE TABLE `tb_magang` (
 --
 
 INSERT INTO `tb_magang` (`id_magang`, `nama_magang`, `alamat_magang`, `deskripsi_magang`, `kapasitas_magang`, `genre`, `created_at`, `updated_at`) VALUES
-(1, 'Menara Pandang', 'disiring tu ada menara, na itu menara pandang', 'sebuah menara', '5', 'RPL , TKJ , MM', '2018-11-23 06:27:52', '0000-00-00 00:00:00'),
+(1, 'Menara Pandang', 'disiring tu ada menara, na ituas menara pandang', 'sebuah menaraawd', '3', 'RPL , TKJ , MM', '2018-12-03 14:37:41', '0000-00-00 00:00:00'),
 (2, 'SMA 11', 'sma yang ada disungai andai', 'Sekolah pang, apalagi', '1', 'PKS , ANM , RPL', '2018-11-23 06:27:52', '0000-00-00 00:00:00'),
 (4, 'Dinas Kesehatan Kota Banjarmasin', 'cari sorang di google maps', 'jadi babu kam disitu', '2', 'RPL , TKJ , MM , BCT , ANM , PKS , KI , DI', '2018-11-23 06:35:19', '0000-00-00 00:00:00'),
 (5, 'Dinas Pemuda Olah Raga ', 'cari sorang di google maps', 'jadi babu jua disitu', '5', 'RPL , TKJ , MM , BCT , ANM , PKS , KI , DI', '2018-11-23 06:35:19', '0000-00-00 00:00:00'),
 (6, 'BTIKP', 'cari sorang di google maps', 'kada jadi babu, tapi kdd ai yang dgwi tmbul dsiut', '3', 'RPL , TKJ , MM , BCT , ANM , PKS , KI , DI', '2018-11-23 06:38:05', '0000-00-00 00:00:00'),
-(7, 'PR. Panas Dalam Tenggorakan', 'ni hanya fiksi belaka', 'sebuah perusaahan obat panas dalam', '5', 'RPL', '2018-11-23 06:38:05', '0000-00-00 00:00:00'),
+(7, '', '', '', '', '', '2018-12-03 14:34:26', '0000-00-00 00:00:00'),
 (8, 'NET Entertainment', 'di jakarta rasanya', 'ada sule', '5', 'BCT , MM , TKJ', '2018-11-23 06:41:37', '0000-00-00 00:00:00'),
-(9, 'Bandai Inc.', 'Jepang boy ae', 'meulah anime hentai', '5', 'ANM , DI , MM', '2018-11-23 06:41:37', '0000-00-00 00:00:00'),
-(10, 'Umbrella', 'di resident evil', 'perusahaan mengobati kanker', '4', 'KI', '2018-11-23 06:43:58', '0000-00-00 00:00:00');
+(9, 'Bandai Inc.', 'Jepang boy ae', 'meulah anime hentai', '5', 'ANM , DI , MM', '2018-11-23 06:41:37', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1800,15 +1799,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `kata_sandi`, `nama`, `role`, `jurusan`, `onoff`, `created_at`, `updated_at`) VALUES
-('123', '123', 'Riswan Noorhidayat', '1', 'RPL', '', '2018-11-26 12:58:28', '0000-00-00 00:00:00'),
-('Aprilia grande', 'fia123', 'Fia Hawaina Aprilia', '4', 'TKJ', '', '2018-11-23 07:13:47', '0000-00-00 00:00:00'),
-('dianewan', 'riswan', 'Dian Ekayuti', '4', 'BCT', '', '2018-11-23 07:12:41', '0000-00-00 00:00:00'),
-('Firman', 'Firmasw', 'Firman Hidayat', '4', 'RPL', '', '2018-11-23 07:13:47', '0000-00-00 00:00:00'),
-('inveloqs', 'katahu22', 'Rizky Afdhillah', '4', 'RPL', '', '2018-11-23 07:07:44', '0000-00-00 00:00:00'),
-('juanda', 'juanda', 'Juanda', '4', 'RPL', '', '2018-11-23 07:12:41', '0000-00-00 00:00:00'),
-('mutee', 'mute', 'Mutya Sari', '4', 'KI', '', '2018-11-23 07:03:47', '0000-00-00 00:00:00'),
-('sulthoniex', 'ekaku123', 'Muhammad Sulthony Sukma', '3', 'RPL', '', '2018-11-24 16:36:42', '0000-00-00 00:00:00'),
-('wirex', 'katahu33', 'Ferry Gunawan', '2', 'RPL', '', '2018-11-24 16:39:56', '0000-00-00 00:00:00');
+('0013849419', '123', 'M. Sulthoni Sukma', '1', 'RPL', '', '2018-12-14 12:38:38', '0000-00-00 00:00:00'),
+('0017257555', '123', 'Ferry Gunawan', '4', 'RPL', '', '2018-12-14 12:38:38', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -1868,13 +1860,13 @@ ALTER TABLE `tb_kelompok`
 -- AUTO_INCREMENT for table `tb_mading`
 --
 ALTER TABLE `tb_mading`
-  MODIFY `id_mading` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mading` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_magang`
 --
 ALTER TABLE `tb_magang`
-  MODIFY `id_magang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_magang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_pesan`
@@ -1899,6 +1891,12 @@ ALTER TABLE `tb_kelompok`
 ALTER TABLE `tb_pesan`
   ADD CONSTRAINT `fk_id_kelompok` FOREIGN KEY (`id_kelompok`) REFERENCES `tb_kelompok` (`id_kelompok`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`id_user`) REFERENCES `tb_user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tb_user`
+--
+ALTER TABLE `tb_user`
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`id_user`) REFERENCES `tb_siswa` (`nisn`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
