@@ -55,9 +55,9 @@ else{
               <span class="sr-only">(current)</span>
             </a>
           </li>
- <!--         <li class="nav-item">
+         <li class="nav-item">
             <a class="nav-link" href="#">MANAGE PRAKERIN</a>
-          </li>           -->
+          </li>
         </ul>
         <!-- NavBar -->
         <ul class="navbar-nav ml-md-auto d-md-flex">
@@ -156,7 +156,7 @@ else{
     <script src="../assets/js/main.js"></script>
 
 </body>
-<?php 
+<?php
 }
 ?>
 
