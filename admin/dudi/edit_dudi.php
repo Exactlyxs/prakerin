@@ -12,8 +12,6 @@ else{
     $sql = mysqli_query($koneksi, $query);
     $row = mysqli_fetch_assoc($sql);
 
-    $newrow =  mysqli_fetch_array($sql);
-    $cek = explode(', ', $newrow['genre']);
 
 ?>
 
@@ -107,14 +105,16 @@ else{
                 </div>
                 <div class="form-group">
                     <label>Jurusan</label><br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="PS" <?php in_array('PS', $cek) ? print 'checked' : ''; ?>>Pekerja Sosial <br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="TKJ" <?php in_array('TKJ', $cek) ? print 'checked' : ''; ?>>Teknik Kompter dan Jaringan <br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="BCT" <?php in_array('BCT', $cek) ? print 'checked' : ''; ?>>Bordcasting <br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="MM" <?php in_array('MM', $cek) ? print 'checked' : ''; ?>>Multimedia <br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="ANM" <?php in_array('ANM', $cek) ? print 'checked' : ''; ?>>Animasi <br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="RPL" <?php in_array('RPL', $cek) ? print 'checked' : ''; ?>>Rekayasa Perangakt Lunak <br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="KI" <?php in_array('KI', $cek) ? print 'checked' : ''; ?>>Kimia Industri <br>
-                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="DI" <?php in_array('DI', $cek) ? print 'checked' : ''; ?>>Desain Interior
+                    <label>Nama Prakerin</label>
+                    <input type="text" disabled name="genre" class="form-control w-50" value="<?php echo $row['genre'] ?>" aria-describedby="helpId">
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="PS" >Pekerja Sosial <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="TKJ" >Teknik Kompter dan Jaringan <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="BCT" >Bordcasting <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="MM" >Multimedia <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="ANM" >Animasi <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="RPL" >Rekayasa Perangakt Lunak <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="KI" >Kimia Industri <br>
+                    <input type="checkbox" name="jurusan[]" id="" aria-describedby="helpId" value="DI">Desain Interior
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-md btn-primary" onclick="return confirm('Yakin ?');">Edit</button>
