@@ -1,8 +1,15 @@
 <?php 
-include '../../../koneksi.php';
-$nisn = $_SESSION['nisn'];
+include '../../koneksi.php';
+session_start();
+if (!$id) {
+  echo "<script>alert('Anda Belum Login!!');window.location='../../index.php'</script>";
+}
+else{
+$nisn = $_SESSION['id_user'];
 $mencari_data = "select * from tb_prakerin where nisn='$nisn'";
 $sql = mysqli_connect($koneksi, $mencari_data );
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +69,13 @@ $sql = mysqli_connect($koneksi, $mencari_data );
       </div>
     </nav>
 
-    <center><h1 style="margin-top: 70px;">Belum Memlih Tempat Magang</h1><a href="step1.php" class="btn btn-primary">Pilih Tempat Magang</a></center>
+    <center><h1 style="margin-top: 70px;">
+      <?php 
+      if (!$sql) {
+        echo "Anda Belum Memilih Tempat Magang";
+      }
+      ?>
+    </h1><a href="step1.php" class="btn btn-primary">Pilih Tempat Magang</a></center>
 
 
      <!-- JS -->
