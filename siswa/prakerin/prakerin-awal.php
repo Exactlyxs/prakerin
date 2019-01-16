@@ -1,3 +1,10 @@
+<?php 
+include '../../../koneksi.php';
+$nisn = $_SESSION['nisn'];
+$mencari_data = "select * from tb_prakerin where nisn='$nisn'";
+$sql = mysqli_connect($koneksi, $mencari_data );
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
